@@ -1,4 +1,4 @@
-package com.example.minimoneybox
+package com.example.minimoneybox.views
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 import java.util.regex.Pattern
+import android.animation.Animator
+import com.example.minimoneybox.R
+
 
 /**
  * A login screen that offers login via email/password.
@@ -47,6 +51,7 @@ class LoginActivity : AppCompatActivity() {
         btn_sign_in.setOnClickListener {
             if (allFieldsValid()) {
                 Toast.makeText(this, R.string.input_valid, Toast.LENGTH_LONG).show()
+                val name = et_name.text.toString()
             }
         }
 
@@ -54,31 +59,52 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun allFieldsValid() : Boolean {
-        var allValid = false
+        til_email.error = null
+        til_password.error = null
+        til_name.error = null
 
-        if (Pattern.matches(EMAIL_REGEX, et_email.text.toString())) {
-            allValid = true
-        } else {
+        val emailValid = Pattern.matches(EMAIL_REGEX, et_email.text.toString())
+        val passwordValid = Pattern.matches(PASSWORD_REGEX, et_password.text.toString())
+        val nameValid = Pattern.matches(NAME_REGEX, et_name.text.toString())
+
+        val allValid = emailValid && passwordValid && nameValid
+
+        if (!emailValid) {
             til_email.error = getString(R.string.email_address_error)
         }
-
-        if (Pattern.matches(PASSWORD_REGEX, et_password.text.toString())) {
-            allValid = true
-        } else {
+        if (!passwordValid)  {
             til_password.error = getString(R.string.password_error)
         }
 
-        if (Pattern.matches(NAME_REGEX, et_password.text.toString())) {
-            allValid = true
-        } else {
-            til_email.error = getString(R.string.full_name_error)
+        if (!nameValid)  {
+            til_name.error = getString(R.string.full_name_error)
         }
 
         return allValid
     }
 
     private fun setupAnimation() {
+        pigAnimation.setMinAndMaxFrame(firstAnim.first, firstAnim.second)
+        pigAnimation.addAnimatorListener(object : Animator.AnimatorListener {
+            override fun onAnimationRepeat(p0: Animator?) {
+
+            }
+
+            override fun onAnimationEnd(p0: Animator?) {
+                pigAnimation.setMinAndMaxFrame(secondAnim.first, secondAnim.second)
+                pigAnimation.repeatCount = LottieDrawable.INFINITE
+                pigAnimation.playAnimation()
+            }
+
+            override fun onAnimationCancel(p0: Animator?) {
+            }
+
+            override fun onAnimationStart(p0: Animator?) {
+            }
+
+        })
         pigAnimation.playAnimation()
+
     }
 
     companion object {

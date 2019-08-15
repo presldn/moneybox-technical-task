@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                              android:layout_width="match_parent"
+                                              xmlns:app="http://schemas.android.com/apk/res-auto"
+                                              android:layout_margin="16dp"
+                                              app:cardCornerRadius="6dp"
+                                              android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="horizontal" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:id="@+id/friendlyName"/>
+            <TextView android:layout_marginTop="8dp" android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:id="@+id/planValue"/>
+            <TextView android:layout_marginTop="8dp" android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:id="@+id/moneybox"/>
+        </LinearLayout>
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_chevron_right_black_24dp"
+        android:padding="16dp"/>
+    </LinearLayout>
+
+</android.support.design.card.MaterialCardView>

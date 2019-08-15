@@ -11,4 +11,15 @@
     <string name="password_error">Please enter a correct password</string>
     <string name="full_name_error">Please enter your full name</string>
     <string name="input_valid">Input is valid!</string>
+    <string name="welcome_message">Hello %1$s!</string>
+    <string name="total_plan_value">Total plan value: £%1$s</string>
+    <string name="plan_value">Plan Value: £%1$s</string>
+    <string name="moneybox">Moneybox: £%1$s</string>
+    <string name="add_money">Add £10</string>
+    <string name="money_added">Money added!</string>
+    <string name="error_message">Oops! Something went wrong. Please try later.</string>
+    <string name="retry">Retry</string>
+    <string name="products_error">Could not get investor products.</string>
+    <string name="add_money_progress">Adding money</string>
+    <string name="getting_products_message">Fetching your products.</string>
 </resources>
