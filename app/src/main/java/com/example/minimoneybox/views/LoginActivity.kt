@@ -10,6 +10,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
 import java.util.regex.Pattern
 import android.animation.Animator
+import android.content.Intent
 import com.example.minimoneybox.R
 
 
@@ -51,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
         btn_sign_in.setOnClickListener {
             if (allFieldsValid()) {
                 Toast.makeText(this, R.string.input_valid, Toast.LENGTH_LONG).show()
-                val name = et_name.text.toString()
+                startActivity(Intent(this@LoginActivity, UserAccountsActivity::class.java))
             }
         }
 

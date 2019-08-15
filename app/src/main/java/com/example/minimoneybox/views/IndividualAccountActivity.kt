@@ -20,8 +20,13 @@ class IndividualAccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_individual_account)
 
+
+
         val binding: ActivityIndividualAccountBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_individual_account)
+
+        setSupportActionBar(binding.toolbar2)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val viewModel: IndividualAccountViewModel =
             ViewModelProviders.of(this).get(IndividualAccountViewModel::class.java)

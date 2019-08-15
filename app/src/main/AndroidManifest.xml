@@ -11,9 +11,18 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".views.IndividualAccountActivity">
+        <activity android:name=".views.IndividualAccountActivity"
+        android:parentActivityName=".views.UserAccountsActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".views.UserAccountsActivity" />
         </activity>
         <activity android:name=".views.UserAccountsActivity">
+
+        </activity>
+        <activity
+                android:name=".views.LoginActivity"
+                android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,11 +30,6 @@
 
                 <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
-        </activity>
-        <activity
-                android:name=".views.LoginActivity"
-                android:label="@string/app_name">
-
         </activity>
     </application>
 

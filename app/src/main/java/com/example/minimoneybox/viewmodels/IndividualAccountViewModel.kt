@@ -50,9 +50,4 @@ class IndividualAccountViewModel : BaseViewModel() {
             )
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        subscription.dispose()
-    }
-
 }
